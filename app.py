@@ -26,7 +26,7 @@ def after_request(response):
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = True
-app.secret_key = "Aryanisgreat@/debug/e-vote/23/unhack"
+app.secret_key = ""
 
 @app.route("/")
 def index():
