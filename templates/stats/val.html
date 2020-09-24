@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Election
+{% endblock %}
+
+{% block new_page_section %}
+{% endblock %}
+
+{% block main %}
+    {% if error == 1 %}
+        <div class="alert alert-danger">
+                <strong>ERROR!</strong> {{issue}} already exists!
+        </div>
+    {% endif %}
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create a new election</h1>
+              </div>
+              <form class="user" action="/val" method='POST'>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" name="elect_name" placeholder="Election name">
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" name="state" placeholder="Full state name">
+                  </div>
+                </div>  
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="country" placeholder="Country">
+                  </div>
+                  <div class="col-sm-6">
+                    <br>
+                    <div class="custom-control custom-checkbox small">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" name="state_required" value="1">
+                      <label class="custom-control-label" for="customCheck">State specific election</label>
+                    </div>
+                  </div>
+                </div> 
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <label class="control-label" for="s_date">Start Date</label>
+                    <input type='date' class="form-control" name="Start_date" id='s_date'>
+                  </div>
+                  <div class='col-sm-6'>
+                    <label class="control-label" for="s_time">Start Time</label>
+                    <input type='time' class="form-control" name="Start_time" id='s_time'>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <label class="control-label" for="e_date">End Date</label>
+                    <input type='date' class="form-control" name="End_date" id='e_date'>
+                  </div>
+                  <div class='col-sm-6'>
+                    <label class="control-label" for="e_time">End Time</label>
+                    <input type='time' class="form-control" name="End_time" id='e_time'>
+                  </div>
+                </div>                                 
+            </div>
+                <input type="submit" class="btn btn-primary btn-user btn-block" Value="Create Election">
+                <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

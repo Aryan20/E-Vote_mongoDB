@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vote
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <table class="table table-striped" style="text-align:left">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Election Name
+                    </th>
+                    <th scope="col">
+                        State
+                    </th>
+                    <th scope="col">
+                        Start
+                    </th>
+                    <th scope="col">
+                        End
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in d1%}
+                    <tr>
+                        <td>
+                            {{d["e_name"]}}
+                        </td>
+                        <td>
+                            {{d["state"]}}
+                        </td>
+                        <td>
+                            {{d["start_date"]}} {{d["start_time"]}}
+                        </td>
+                        <td>
+                            {{d["end_date"]}} {{d["end_time"]}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">    
+          <table class="table table-striped" style="text-align:left">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Party Name
+                    </th>
+                    <th scope="col">
+                        Candidate First Name
+                    </th>
+                    <th scope="col">
+                        Candidate Last Name
+                    </th>
+                    <th scope="col">
+                        Symbol
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in details%}
+                    <tr>
+                        <td>
+                            {{d["party"]}}
+                        </td>
+                        <td>
+                            {{d["first"]}}
+                        </td>
+                        <td>
+                            {{d["last"]}}
+                        </td>
+                        <td>
+                            {{d["symbol"]}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
